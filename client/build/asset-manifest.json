@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/static/css/main.dabe0d42.css",
+    "main.js": "/static/js/main.a236093a.js",
+    "static/js/289.96a33eda.chunk.js": "/static/js/289.96a33eda.chunk.js",
+    "static/media/lebronsunshinecover.png": "/static/media/lebronsunshinecover.d52783199f629c6e3e34.png",
+    "static/media/lebronsunshinecover.jpg": "/static/media/lebronsunshinecover.8924c3a0c117e84ab897.jpg",
+    "static/media/more.png": "/static/media/more.b1d4972864aba11f95a9.png",
+    "index.html": "/index.html",
+    "main.dabe0d42.css.map": "/static/css/main.dabe0d42.css.map",
+    "main.a236093a.js.map": "/static/js/main.a236093a.js.map",
+    "289.96a33eda.chunk.js.map": "/static/js/289.96a33eda.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dabe0d42.css",
+    "static/js/main.a236093a.js"
+  ]
+}
