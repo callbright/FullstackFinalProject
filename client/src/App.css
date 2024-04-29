@@ -1,0 +1,52 @@
+.App {
+  font-family: Avenir, "Century Gothic", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+  font-size: calc(10px + 2vmin);
+  color: black;
+  background-color: rgba(0, 0, 0, 0.962);
+  background-image: url('./lebronsunshinecover.png'); 
+  padding: 20px;
+  display: flex;
+  flex-direction: column; /* Changed from row to column for better vertical alignment */
+  align-items: center; /* Keeps items centered */
+}
+
+.header{
+  width: 100%;
+  color:black;
+  text-align: center;
+}
+
+.headerBtn {
+  margin-bottom: 50px;
+  margin-right: 10px;
+}
+
+.ReadPosts {
+  display: flex !important;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+
+
+
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 15px;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  color:white;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
