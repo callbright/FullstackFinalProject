@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import './Card.css';
-import more from './more.png';
 import { Link } from 'react-router-dom';
 import { supabase } from '../client';
 import { formatDistanceToNow } from 'date-fns';

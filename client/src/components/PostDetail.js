@@ -7,12 +7,13 @@ const PostDetail = () => {
     const [comments, setComments] = useState([]);
     const [comment, setComment] = useState('');
     const { id } = useParams();
-    const navigate = useNavigate();
+
 
     useEffect(() => {
         fetchPost();
         fetchComments();
-    }, [id]);
+      }, [fetchPost, fetchComments]); // Include dependencies here
+      
 
     const fetchPost = async () => {
         const { data, error } = await supabase
