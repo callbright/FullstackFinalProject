@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect, useCallback } from 'react';
+import { useParams } from 'react-router-dom';
 import { supabase } from '../client';
 
 const PostDetail = () => {
@@ -8,14 +8,7 @@ const PostDetail = () => {
     const [comment, setComment] = useState('');
     const { id } = useParams();
 
-
-    useEffect(() => {
-        fetchPost();
-        fetchComments();
-      }, [fetchPost, fetchComments]); // Include dependencies here
-      
-
-    const fetchPost = async () => {
+    const fetchPost = useCallback(async () => {
         const { data, error } = await supabase
             .from('criteria')
             .select('*')
@@ -25,9 +18,9 @@ const PostDetail = () => {
         if (!error) {
             setPost(data);
         }
-    };
+    }, [id]);  // Dependency on `id`
 
-    const fetchComments = async () => {
+    const fetchComments = useCallback(async () => {
         const { data, error } = await supabase
             .from('comments')
             .select('*')
@@ -36,7 +29,12 @@ const PostDetail = () => {
         if (!error) {
             setComments(data);
         }
-    };
+    }, [id]);  // Dependency on `id`
+
+    useEffect(() => {
+        fetchPost();
+        fetchComments();
+    }, [fetchPost, fetchComments]);
 
     const handleCommentChange = (event) => {
         setComment(event.target.value);

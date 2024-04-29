@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { supabase } from '../client';
 import Card from '../components/Card';
 import { Link } from 'react-router-dom';
@@ -6,17 +6,12 @@ import './ReadPosts.css';
 
 const ReadPosts = () => {
     const [posts, setPosts] = useState([]);
-    const [search, setSearch] = useState('');  // State to hold the search query
+    const [search, setSearch] = useState('');
     const [sortType, setSortType] = useState('newest');
 
-    useEffect(() => {
-        fetchPosts();
-    }, [sortType, search]);  // Also depend on search state
-
-    const fetchPosts = async () => {
+    const fetchPosts = useCallback(async () => {
         let query = supabase.from('criteria').select();
 
-        // Adding search functionality: filter posts by title
         if (search) {
             query = query.ilike('title', `%${search}%`);
         }
@@ -33,7 +28,11 @@ const ReadPosts = () => {
         } else {
             setPosts(data);
         }
-    };
+    }, [search, sortType]);
+
+    useEffect(() => {
+        fetchPosts();
+    }, [fetchPosts]);
 
     return (
         <div>
